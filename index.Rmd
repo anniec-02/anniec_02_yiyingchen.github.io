@@ -1,0 +1,18 @@
+---
+title: "Welcome to Yiying Chen's personal website"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+    theme: cerulean
+---
+
+<img src="image/IMG_4225.JPG" style="width:60%"/>
+
+## HELLO!
+
+I'm Yiying Chen and you can call me Annie.\
+I'm currently a graduate student at Columbia University studying bio statistics.\
+I was born in China and completed my undergraduate degree in Queen's University in Canada. These experiences have taught me to value openness, empathy, and curiosity — the belief that learning from differences allows us to grow, connect, and create with greater understanding.
+
+**Contact: [yc4776\@cumc.columbia.edu](mailto:yc4776@cumc.columbia.edu){.email}**
