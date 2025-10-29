@@ -1,0 +1,24 @@
+---
+title: "About Me"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+## Academic background
+[Sep. 2025] - Now   
+**[Columbia University]**      
+Master of Science in Biostats   
+
+
+
+[Sep. 2020]  - [Aug. 2025]   
+**[Queen's University]**   
+Bachelor of Science (Hons.) and Bachelor of Education        
+Intermediate-Senior Education: Mathematics and Chemistry    
+Certificate in Business (granted by Smith School of Business)   
+
+## Professional background
+ 

@@ -1,0 +1,15 @@
+name: "yc4776-hw4"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About me"
+      href: about.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<yc4776@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: "https://github.com/anniec-02"
+      
+output:
+  html_document:
+    theme: cerulean
