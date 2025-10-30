@@ -1,11 +1,129 @@
 ---
 title: "problem 2--flexdashboard"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    theme: cerulean
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-## problem2
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+data("ny_noaa")
+
+```
+## Chart A
+```{r line_graph, message=FALSE, warning=FALSE}
+ny_noaa_t_max_min =
+  ny_noaa |>
+  select(date, tmax, tmin) |>
+  filter(!is.na(tmax) & !is.na(tmin)) |>
+  mutate(
+    date = ymd(date),
+    year = as.numeric(year(date)),
+    month = month(date),
+    tmax = as.numeric(tmax) / 10,
+    tmin = as.numeric(tmin) / 10,
+    season = case_when(
+      month %in% c(12, 1, 2) ~ "Winter",
+      month %in% c(3, 4, 5) ~ "Spring",
+      month %in% c(6, 7, 8) ~ "Summer",
+      month %in% c(9, 10, 11) ~ "Autumn"
+    )
+  ) |>
+  filter (year >= 2005, year <= 2010) |>
+  filter (season == "Winter")
+
+winter_monthly <- ny_noaa_t_max_min |>
+  group_by(year, month) |>
+  summarize(
+    tmax_mean = mean(tmax), 
+    tmin_mean = mean(tmin), 
+    .groups = "drop"
+  ) |>
+  mutate(date_update = make_date(year, month, 1))
+
+line_graph <- ggplot(winter_monthly) +
+  geom_line(aes(x = date_update, y = tmax_mean, color = "tmax"), linewidth = 1) +
+  geom_line(aes(x = date_update, y = tmin_mean, color = "tmin"), linewidth = 1) +
+  labs(
+    title = "Maximum and Minimum Temperature in Winter (2005–2010)",
+    x = "Year",
+    y = "Temperature (°C)",
+    color = "Temperature Type"    
+  ) +
+  theme(
+    legend.position = "bottom")
+
+ggplotly(line_graph)  
+```
+
+## Chart B
+```{r bar_plot, message=FALSE, warning=FALSE}
+ny_noaa_rain = 
+  ny_noaa |>
+  select(date, prcp) |>
+  filter(!is.na(prcp)) |>
+  mutate(
+    date = ymd(date),
+    year = as.numeric(year(date)),
+    month = month(date),
+    season = case_when(
+      month %in% c(12, 1, 2) ~ "Winter",
+      month %in% c(3, 4, 5) ~ "Spring",
+      month %in% c(6, 7, 8) ~ "Summer",
+      month %in% c(9, 10, 11) ~ "Autumn"
+    )
+  ) |>
+  filter (year >= 2005, year <= 2010)
+
+bar_plot = 
+  ny_noaa_rain |>
+  group_by(year, season) |>
+  summarize(mean_prcp = mean(prcp)) |>
+  ggplot(aes(x = factor(year), y = mean_prcp, fill = season)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Average Precipitation in Four Seasons (2005–2010)",
+    subtitle = "NY NOAA Weather Data",
+    x = "Year",
+    y = "Average Precipitation (cm)",
+    fill = "Season"
+  ) +
+  theme(
+    legend.position = "bottom")
+
+ggplotly(bar_plot)
+  
+```
+
+## Chart C
+```{r scatter, message=FALSE, warning=FALSE}
+ny_noaa_rain_snow = 
+  ny_noaa |>
+  select(date, prcp, snwd) |>
+  filter(prcp > 0, snwd > 0) |>
+  filter(!is.na(prcp) & !is.na(snwd)) |>
+  mutate(
+    date = ymd(date),
+    year = as.numeric(year(date)),
+    prcp = as.numeric(prcp)/10) |>
+  filter (year == 2010)
+
+scatter_plot = 
+  ggplot(ny_noaa_rain_snow, aes(x = prcp, y = snwd)) +
+  geom_point(alpha = 0.4, color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red", linewidth = 1) +  
+  labs(
+    title = "Relationship Between Precipitation and Snow Depth in 2010",
+    x = "Precipitation (mm)",
+    y = "Snow Depth (mm)"
+  ) 
+
+ggplotly(scatter_plot)
+```
+
+
 
