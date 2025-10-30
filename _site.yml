@@ -2,6 +2,9 @@ name: "yc4776-hw4"
 output_dir: "."
 navbar:
   title: "Home"
+  left:
+    - text: "flexdashboard"
+      href: problem_2.html
   right:
     - text: "About me"
       href: about.html
