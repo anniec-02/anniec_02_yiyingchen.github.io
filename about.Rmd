@@ -21,4 +21,27 @@ Intermediate-Senior Education: Mathematics and Chemistry
 Certificate in Business (granted by Smith School of Business)   
 
 ## Professional background
+[Jun. 2023]  - [Aug. 2023]  
+**Undergraduate Student Research Assistant**    
+Queen's Univeristy, Kingston, Canada   
+Project: The North Pole   
+▪	Study the beta distribution and properties of combination of chi square distribution   
+▪	Navigate through 10+ past papers to study the related theory   
+▪	Show that the (1,1) element of Gamma is beta function
+
+[Mar. 2024]  - [Apr. 2024]   
+**Data Analyst Assistant**  
+Institute of Translational Medicine at Shanghai Jiaotong University, Shanghai, China   
+▪	Navigate through recent study on the topic of discrepancy   
+▪	Complete a model for a sampling survey through all schools in China   
+▪	Process and clean data for clinical dataset of four types of kidney neoplasms with 185 clinical samples and more than 250 variables   
+▪	Complete a prediction tree model of classification of four types of kidney neoplasms based on clinical dataset and achieve an accuracy for about 0.9   
+
+## Skills
+**Computer Skills**: sufficient understanding in r studio; standard learning in LaTeX, python, and Java    
+**Language Skills**: native in Chinese, fluent in English   
+**Graphic skills**: design using canvas, lightroom, photoshop and other similar software   
+**Qualification**: Certificate in Business (granted by Smith School of Business)   
+
+
  
