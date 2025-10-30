@@ -4,7 +4,7 @@ navbar:
   title: "Home"
   left:
     - text: "flexdashboard"
-      href: problem_2.html
+      href: flexdashboard.html
   right:
     - text: "About me"
       href: about.html
